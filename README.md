@@ -1,0 +1,1 @@
+# wasm-golang-01-initialize
