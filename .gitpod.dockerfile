@@ -25,3 +25,9 @@ ARG TINYGO_VERSION="0.30.0"
 RUN wget https://github.com/tinygo-org/tinygo/releases/download/v${TINYGO_VERSION}/tinygo_${TINYGO_VERSION}_amd64.deb
 RUN sudo dpkg -i tinygo_${TINYGO_VERSION}_amd64.deb
 RUN rm tinygo_${TINYGO_VERSION}_amd64.deb
+
+# ------------------------------------
+# Install Wasm runtimes
+# ------------------------------------
+RUN curl -sSf https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/utils/install.sh | bash
+RUN curl https://wasmtime.dev/install.sh -sSf | bash
