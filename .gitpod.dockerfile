@@ -11,9 +11,10 @@ ENV GOROOT=$HOME/go
 ENV PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
 RUN <<EOF
+#!/bin/bash
 curl -fsSL https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz | tar xzs \
-    && printf '%s\n' 'export GOPATH=/workspace/go' \
-                      'export PATH=$GOPATH/bin:$PATH' > $HOME/.bashrc.d/300-go
+    && printf "%s\n" "export GOPATH=/workspace/go" \
+                     "export PATH=$GOPATH/bin:$PATH" > $HOME/.bashrc.d/300-go
 go version
 go install -v golang.org/x/tools/gopls@latest
 go install -v github.com/ramya-rao-a/go-outline@latest
